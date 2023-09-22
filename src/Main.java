@@ -15,7 +15,7 @@
 import java.util.Scanner;
 
 public class Main {
-    public static int Splitting(int boys, int girls){
+    /*public static int Splitting(int boys, int girls){
         int maxGroup = 0;
         int count = 0;
         while (Math.min(boys, girls) != 0) {
@@ -36,6 +36,18 @@ public class Main {
         }
         System.out.println(count);
         return maxGroup;
+    }*/
+
+    public static int Splitting(int boys, int girls){
+        int maxGroup = 0;
+        while (true)
+        {
+            if (boys >= girls & boys >= 2 & girls >= 1){ boys -= 2; girls--;}
+            else if (boys < girls & boys >= 1 & girls >= 2) { girls -= 2; boys--; }
+            else { break; }
+            maxGroup += 1;
+        }
+        return maxGroup;
     }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -48,6 +60,7 @@ public class Main {
             System.out.println("Incorrect input!");
             System.exit(-1);
         }
+
         System.out.println("The maximum number of groups is: " + Splitting(boys, girls));
     }
 }
